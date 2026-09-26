@@ -11,24 +11,18 @@ int main()
         int n;
         cin >> n;
         vector<int> a(n);
-        int even_count = 0;
-        int odd_count = 0;
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a[i];
-            if ((a[i] & 1) == 0)
-                even_count++;
-            else
-                odd_count++;
+        for(int i=0;i<n;i++) cin>>a[i];
+        bool found = false;
+        for(int i=0;i<n-1;i++){
+            if(((a[i]&1)==0 && (a[i+1]&1)!=0) || ((a[i]&1)!=0 && (a[i+1]&1)==0)){
+                
+            }
+            else{
+                found = true;
+                break;
+            }
         }
-        if (n == 2 && even_count == 1 && odd_count == 1)
-            cout << "NO" << '\n';
-        else
-        {
-            if ((odd_count & 1) == 0)
-                cout << "YES" << '\n';
-            else
-                cout << "NO" << '\n';
-        }
+        if(found==true) cout<<"NO"<<'\n';
+        else cout<<"YES"<<'\n';
     }
 }
